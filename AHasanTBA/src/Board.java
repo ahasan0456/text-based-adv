@@ -5,8 +5,9 @@
 */
 public class Board
 {
-	public Board()
+	public Space[][] map;
+	public Board(Space[][] map)
 	{
-		
+		this.map=map;
 	}
 }
