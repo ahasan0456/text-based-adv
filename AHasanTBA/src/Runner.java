@@ -39,6 +39,10 @@ public class Runner
 						player1.move(shiftSouth);
 						System.out.println("You cannot move that way, as it is out of the playable area.");
 					}
+					else
+					{
+						System.out.println("You have moved north.");
+					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 				}
 				else if(Utilities.findKeyword(response,"East")>=0||Utilities.findKeyword(response,"Right")>=0)
@@ -49,6 +53,10 @@ public class Runner
 					{
 						player1.move(shiftWest);
 						System.out.println("You cannot move that way, as it is out of the playable area.");
+					}
+					else
+					{
+						System.out.println("You have moved east.");
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 				}
@@ -61,6 +69,10 @@ public class Runner
 						player1.move(shiftNorth);
 						System.out.println("You cannot move that way, as it is out of the playable area.");
 					}
+					else
+					{
+						System.out.println("You have moved south.");
+					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 				}
 				else if(Utilities.findKeyword(response,"West")>=0||Utilities.findKeyword(response,"Left")>=0)
@@ -71,6 +83,10 @@ public class Runner
 					{
 						player1.move(shiftEast);
 						System.out.println("You cannot move that way, as it is out of the playable area.");
+					}
+					else
+					{
+						System.out.println("You have moved west.");
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 				}
