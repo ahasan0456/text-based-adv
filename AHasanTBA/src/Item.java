@@ -1,6 +1,5 @@
 public interface Item
 {
-	public abstract void itemEffect();
+	public abstract void useItem();
 	public abstract String description();
-	public abstract void changeStats();
 }
