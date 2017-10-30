@@ -14,4 +14,8 @@ public class Space
 		this.shops=shops;
 		this.players=players;
 	}
+	public void printSpace()
+	{
+		
+	}
 }

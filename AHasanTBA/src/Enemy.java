@@ -11,7 +11,7 @@ public class Enemy extends Player
 	int health;
 	public Enemy(String name, Item[] inventory, int[] coordinates, int health, String monsterType)
 	{
-		super(name,inventory,coordinates,health,null);
+		super(name,inventory,coordinates,health,null,Utilities.getRandomInteger(20,50));
 		this.name=name;
 	}
 	public int attack()

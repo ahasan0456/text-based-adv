@@ -18,7 +18,14 @@ public class Utilities
 	}
 	public static String getRandomName()
 	{
-		return randomNames[getRandomInteger(0,randomNames.length)];
+		return randomNames[getRandomInteger(0,randomNames.length-1)];
 	}
 	private static String[] randomNames= {"John","Jane","Mary","Joseph","Alex","Anne"};
+	public static int findKeyword(String statement, String keyword)
+	{
+		String x=statement.toLowerCase();
+		String y=keyword.toLowerCase();
+		int position=x.indexOf(y);
+		return position;
+	}
 }
