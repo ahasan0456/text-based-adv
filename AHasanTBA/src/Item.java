@@ -1,10 +1,6 @@
-/*
-*	Author: Amir Hasan
-*	Last Updated: 10-27-17
-*	Description: This is the file to run the project. Obviously.
-*/
-public abstract class Item
+public interface Item
 {
-	public String itemName;
 	public abstract void itemEffect();
+	public abstract String description();
+	public abstract void changeStats();
 }

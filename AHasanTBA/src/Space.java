@@ -1,9 +1,12 @@
-/*
-*	Author: Amir Hasan
-*	Last Updated: 10-27-17
-*	Description: This is the file to run the project. Obviously.
-*/
-public interface Space
+public class Space
 {
-	public abstract void spaceEffect();
+	public Person[] enemies;
+	public Shop[] shops;
+	public Player[] players;
+	public Space(Person[] enemies, Shop[] shops, Player[] players)
+	{
+		this.enemies=enemies;
+		this.shops=shops;
+		this.players=players;
+	}
 }
