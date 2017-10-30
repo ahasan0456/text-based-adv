@@ -1,3 +1,9 @@
+/*
+*	Author: Amir Hasan
+*	Last Updated: 10-29-17
+*	Description: Enemy models anthing that fights the player in
+*				 combat.
+*/
 public class Enemy extends Player
 {
 	int attack;
@@ -5,15 +11,19 @@ public class Enemy extends Player
 	int health;
 	public Enemy(String name, Item[] inventory, int[] coordinates, int health, String monsterType)
 	{
-		super(name,inventory,coordinates,health);
+		super(name,inventory,coordinates,health,null);
 		this.name=name;
 	}
 	public int attack()
 	{
-		return 0;
+		return attack;
 	}
 	public int defense()
 	{
-		return 0;
+		return defense;
+	}
+	public String greeting()
+	{
+		return "Bwaah!!!";
 	}
 }

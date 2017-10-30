@@ -1,6 +1,12 @@
+/*
+*	Author: Amir Hasan
+*	Last Updated: 10-29-17
+*	Description: Utilities is used for generic methods that can be used by all
+*				 classes if necessary.
+*/
 public class Utilities
 {
-	public int getRandomInteger(int low, int high)
+	public static int getRandomInteger(int low, int high)
 	{
 		if(low>high)
 		{
@@ -10,9 +16,9 @@ public class Utilities
 		}
 		return (int)(Math.random()*(high-(low-1))+low);
 	}
-	public String getRandomName()
+	public static String getRandomName()
 	{
 		return randomNames[getRandomInteger(0,randomNames.length)];
 	}
-	private String[] randomNames= {"John","Jane","Mary","Joseph","Alex","Anne"};
+	private static String[] randomNames= {"John","Jane","Mary","Joseph","Alex","Anne"};
 }
