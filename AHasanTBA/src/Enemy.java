@@ -1,7 +1,7 @@
 /*
 *	Author: Amir Hasan
 *	Last Updated: 10-29-17
-*	Description: Enemy models anthing that fights the player in
+*	Description: Enemy models anything that fights the player in
 *				 combat.
 */
 public class Enemy extends Player
