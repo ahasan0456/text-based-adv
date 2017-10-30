@@ -16,10 +16,18 @@ public class Runner
 		System.out.println("You must level up and equip better gear first, however, as many monsters and foes stand in your way.");
 		System.out.println("Good luck, "+name+"!");
 		System.out.println("Initializing game...");
+		boolean lose=false;
 		Board world=generateBoard();
 		Player player1=new Player(name, new Item[10], startPos, 25, new Weapon("Wooden Sword",5));
 		world.map[0][0].players[0]=player1;
 		System.out.println("Game started!");
+		while(!lose)
+		{
+			if(player1.health==0)
+			{
+				lose=true;
+			}
+		}
 		input.close();
 	}
 	public static Board generateBoard()
