@@ -119,7 +119,6 @@ public class Runner
 		}
 		return board;
 	}
-	public static int[] startPos= {0,0};
 	public static int[] shiftNorth= {-1,0};
 	public static int[] shiftEast= {0,1};
 	public static int[] shiftWest= {0,-1};
