@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-30-17
+*	Last Updated: 10-31-17
 *	Description: This is the file to run the project. Obviously.
 */
 import java.util.Scanner;
@@ -20,7 +20,7 @@ public class Runner
 		boolean inBattle=false;
 		boolean inShop=false;
 		Board world=generateBoard();
-		Player player1=new Player(name, new Item[10], startPos, 25, new Weapon("Wooden Sword",5), 100);
+		Player player1=new Player(name);
 		world.map[0][0].players[0]=player1;
 		System.out.println("Game started!");
 		System.out.println("You have started in the easy area, all the way northwest.");

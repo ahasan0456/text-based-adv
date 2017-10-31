@@ -1,17 +1,16 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-29-17
-*	Description: Enemy models anything that fights the player in
-*				 combat.
+*	Last Updated: 10-31-17
+*	Description: Enemy models anything that fights the player in combat.
 */
 public class Enemy extends Player
 {
-	int attack;
-	int defense;
-	int health;
-	public Enemy(String name, Item[] inventory, int[] coordinates, int health, String monsterType)
+	private int attack;
+	private int defense;
+	public int health;
+	public Enemy(String name, Item[] inventory, int[] coordinates, int health, int maxHealth)
 	{
-		super(name,inventory,coordinates,health,null,Utilities.getRandomInteger(20,50));
+		super(name,inventory,coordinates,health,maxHealth,null,Utilities.getRandomInteger(20,50));
 		this.name=name;
 	}
 	public int attack()

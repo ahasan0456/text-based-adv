@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-30-17
+*	Last Updated: 10-31-17
 *	Description: Player is the base for anything that can enter combat and
 *				 move around the board as well.
 */
@@ -10,14 +10,26 @@ public class Player extends Person
 	public int health;
 	public Weapon equippedWeapon;
 	public int money;
-	public Player(String name, Item[] inventory, int[] coordinates, int health, Weapon equippedWeapon, int money)
+	public int maxHealth;
+	public Player(String name, Item[] inventory, int[] coordinates, int health, int maxHealth, Weapon equippedWeapon, int money)
 	{
 		this.name=name;
 		this.inventory=inventory;
 		this.coordinates=coordinates;
 		this.health=health;
+		this.maxHealth=maxHealth;
 		this.equippedWeapon=equippedWeapon;
 		this.money=money;
+	}
+	public Player(String name)
+	{
+		this.name=name;
+		this.inventory=new Item[20];
+		this.coordinates=new int[] {0,0};
+		this.health=25;
+		this.maxHealth=25;
+		this.equippedWeapon=new Weapon("Baseball Bat", 5);
+		this.money=100;
 	}
 	public String greeting()
 	{
