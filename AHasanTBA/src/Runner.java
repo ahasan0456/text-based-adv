@@ -19,7 +19,7 @@ public class Runner
 		boolean lose=false;
 		boolean inBattle=false;
 		boolean inShop=false;
-		Board world=generateBoard();
+		Board world=Utilities.generateBoard();
 		Player player1=new Player(name);
 		world.map[0][0].players[0]=player1;
 		System.out.println("Game started!");
@@ -98,26 +98,6 @@ public class Runner
 			}
 		}
 		input.close();
-	}
-	public static Board generateBoard()
-	{
-		Space[][] spaceArr= new Space[5][5];
-		Board board=new Board(spaceArr);
-		for(int row=0;row<spaceArr.length;row++)
-		{
-			int shopPos=Utilities.getRandomInteger(0,spaceArr[row].length);
-			for(int column=0;column<spaceArr[row].length;column++)
-			{
-				Shop[] shopArr= new Shop[1];
-				if(column==shopPos)
-				{
-					Shopkeeper shopPerson=new Shopkeeper("Shopkeeper "+Utilities.getRandomName());
-					shopArr[0]=new Shop(shopPerson);
-				}
-				spaceArr[row][column]=new Space(new Enemy[3], shopArr, new Player[1]);
-			}
-		}
-		return board;
 	}
 	public static int[] shiftNorth= {-1,0};
 	public static int[] shiftEast= {0,1};
