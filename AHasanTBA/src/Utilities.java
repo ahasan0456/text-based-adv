@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 11-1-17
+*	Last Updated: 11-2-17
 *	Description: Utilities is used for generic methods that can be used by all
 *				 classes if necessary.
 */
@@ -89,11 +89,12 @@ public class Utilities
 		String line="";
 		for(int x=0;x<inBoard.map.length;x++)
 		{
-			
 			for(int y=0;y<inBoard.map[x].length;y++)
 			{
-				
+				line+=inBoard.map[x][y].printSpace()+" ";
 			}
+			System.out.println(line);
+			line="";
 		}
 	}
 }

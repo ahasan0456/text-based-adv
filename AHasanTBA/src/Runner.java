@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 10-31-17
+*	Last Updated: 11-2-17
 *	Description: This is the file to run the project. Obviously.
 */
 import java.util.Scanner;
@@ -89,6 +89,10 @@ public class Runner
 						System.out.println("You have moved west.");
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
+				}
+				else if(Utilities.findKeyword(response, "View map")>=0)
+				{
+					Utilities.printMap(world);
 				}
 			}
 			if(player1.health==0)
