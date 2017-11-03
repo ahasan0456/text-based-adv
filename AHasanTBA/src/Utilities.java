@@ -70,16 +70,21 @@ public class Utilities
 		Board board=new Board(spaceArr);
 		for(int row=0;row<spaceArr.length;row++)
 		{
-			int shopPos=Utilities.getRandomInteger(0,spaceArr[row].length);
+			int shopPos=Utilities.getRandomInteger(0,spaceArr[row].length-1);
 			for(int column=0;column<spaceArr[row].length;column++)
 			{
 				Shop[] shopArr= new Shop[1];
+				Enemy[] enemyArr= new Enemy[1];
 				if(column==shopPos)
 				{
 					Shopkeeper shopPerson=new Shopkeeper("Shopkeeper "+Utilities.getRandomName());
 					shopArr[0]=new Shop(shopPerson);
 				}
-				spaceArr[row][column]=new Space(new Enemy[3], shopArr, new Player[1]);
+				if(column>0)
+				{
+					enemyArr[0]=generateEnemy(row, new int[] {row,column});
+				}
+				spaceArr[row][column]=new Space(enemyArr, shopArr, new Player[1]);
 			}
 		}
 		return board;
@@ -92,6 +97,10 @@ public class Utilities
 			for(int y=0;y<inBoard.map[x].length;y++)
 			{
 				line+=inBoard.map[x][y].printSpace()+" ";
+			}
+			if(x+1==inBoard.map.length)
+			{
+				line+="<- Exit";
 			}
 			System.out.println(line);
 			line="";
