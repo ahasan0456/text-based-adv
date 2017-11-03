@@ -12,9 +12,9 @@ public class Food implements Item
 		this.name=name;
 		this.healAmount=healAmount;
 	}
-	public void useItem(Player target)
+	public String useItem()
 	{
-		target.health+=healAmount;
+		return "You eat the "+name+" and gain ";
 	}
 	public String description()
 	{

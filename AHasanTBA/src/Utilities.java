@@ -33,7 +33,7 @@ public class Utilities
 	}
 	public static Enemy generateEnemy(int level, int[] coordinates)
 	{
-		int enHealth=getRandomInteger(level*10,level*15);
+		int enHealth=getRandomInteger(level*9,level*10);
 		Item[] enInventory=new Item[2];
 		String enName= monsterNames[getRandomInteger(0,monsterNames.length-1)];
 		int enMoney=getRandomInteger(level*7,level*9)+getRandomInteger(enHealth*3,enHealth*6);
@@ -68,9 +68,17 @@ public class Utilities
 	{
 		Space[][] spaceArr= new Space[5][5];
 		Board board=new Board(spaceArr);
+		int shopPos=0;
 		for(int row=0;row<spaceArr.length;row++)
 		{
-			int shopPos=Utilities.getRandomInteger(0,spaceArr[row].length-1);
+			if(row<spaceArr.length-1)
+			{
+				shopPos=Utilities.getRandomInteger(0,spaceArr[row].length-1);
+			}
+			else
+			{
+				shopPos=Utilities.getRandomInteger(0,spaceArr[row].length-2);
+			}
 			for(int column=0;column<spaceArr[row].length;column++)
 			{
 				Shop[] shopArr= new Shop[1];
@@ -80,9 +88,9 @@ public class Utilities
 					Shopkeeper shopPerson=new Shopkeeper("Shopkeeper "+Utilities.getRandomName());
 					shopArr[0]=new Shop(shopPerson);
 				}
-				if(column>0)
+				if(column>0&&!(column==spaceArr[row].length-1&&row==spaceArr.length-1))
 				{
-					enemyArr[0]=generateEnemy(row, new int[] {row,column});
+					enemyArr[0]=generateEnemy(row+1, new int[] {row,column});
 				}
 				spaceArr[row][column]=new Space(enemyArr, shopArr, new Player[1]);
 			}

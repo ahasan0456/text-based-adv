@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 11-1-17
+*	Last Updated: 11-2-17
 *	Description: Enemy models anything that fights the player in combat.
 */
 public class Enemy extends Player
@@ -21,14 +21,14 @@ public class Enemy extends Player
 	}
 	public int attack()
 	{
-		return attack;
+		return 0;
 	}
 	public int defense()
 	{
-		return defense;
+		return 0;
 	}
 	public String greeting()
 	{
-		return "Bwaah!!!";
+		return "Grrr!!!";
 	}
 }

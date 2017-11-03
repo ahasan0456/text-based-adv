@@ -5,7 +5,7 @@
 */
 public interface Item
 {
-	public abstract void useItem(Player target);
+	public abstract String useItem();
 	public abstract String description();
 	public abstract String toString();
 }

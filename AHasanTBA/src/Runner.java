@@ -27,8 +27,7 @@ public class Runner
 		Player player1=new Player(name);
 		world.map[0][0].players[0]=player1;
 		System.out.println("Game started!");
-		System.out.println("You have started in the easy area, all the way northwest.");
-		System.out.println("Which direction would you like to go first?");
+		System.out.println("You have started far from the exit, all the way northwest.");
 		while(!lose&&!win)
 		{
 			String response=input.nextLine();
@@ -49,6 +48,13 @@ public class Runner
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 					currentSpace=world.map[player1.coordinates[0]][player1.coordinates[1]];
+					if(currentSpace.enemies[0]!=null)
+					{
+						inBattle=true;
+						currentEnemy=currentSpace.enemies[0];
+						System.out.println("You encounter a "+currentEnemy.name+".");
+						System.out.println(currentEnemy.name+" says: "+currentEnemy.greeting());
+					}
 				}
 				else if(Utilities.findKeyword(response,"East")>=0||Utilities.findKeyword(response,"Right")>=0)
 				{
@@ -69,6 +75,13 @@ public class Runner
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 					currentSpace=world.map[player1.coordinates[0]][player1.coordinates[1]];
+					if(currentSpace.enemies[0]!=null)
+					{
+						inBattle=true;
+						currentEnemy=currentSpace.enemies[0];
+						System.out.println("You encounter a "+currentEnemy.name+".");
+						System.out.println(currentEnemy.name+" says: "+currentEnemy.greeting());
+					}
 				}
 				else if(Utilities.findKeyword(response,"South")>=0||Utilities.findKeyword(response,"Down")>=0)
 				{
@@ -89,6 +102,13 @@ public class Runner
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 					currentSpace=world.map[player1.coordinates[0]][player1.coordinates[1]];
+					if(currentSpace.enemies[0]!=null)
+					{
+						inBattle=true;
+						currentEnemy=currentSpace.enemies[0];
+						System.out.println("You encounter a "+currentEnemy.name+".");
+						System.out.println(currentEnemy.name+" says: "+currentEnemy.greeting());
+					}
 				}
 				else if(Utilities.findKeyword(response,"West")>=0||Utilities.findKeyword(response,"Left")>=0)
 				{
@@ -105,6 +125,13 @@ public class Runner
 					}
 					world.map[player1.coordinates[0]][player1.coordinates[1]].players[0]=player1;
 					currentSpace=world.map[player1.coordinates[0]][player1.coordinates[1]];
+					if(currentSpace.enemies[0]!=null)
+					{
+						inBattle=true;
+						currentEnemy=currentSpace.enemies[0];
+						System.out.println("You encounter a "+currentEnemy.name+".");
+						System.out.println(currentEnemy.name+" says: "+currentEnemy.greeting());
+					}
 				}
 				else if(Utilities.findKeyword(response, "map")>=0)
 				{
@@ -134,15 +161,33 @@ public class Runner
 				if(Utilities.findKeyword(response, "Exit")>=0||Utilities.findKeyword(response, "Leave")>=0)
 				{
 					inShop=false;
+					currentShop=null;
 					System.out.println("You have exited the shop.");
+				}
+				else
+				{
+					System.out.println("That is not a valid command. Try something else.");
 				}
 			}
 			else if(inBattle)
 			{
+				if(Utilities.findKeyword(response, "Attack")>=0)
+				{
+					currentEnemy.health-=player1.equippedWeapon.attack;
+					System.out.println(player1.equippedWeapon.useItem()+player1.equippedWeapon.attack+" damage.");
+				}
+				else
+				{
+					System.out.println("That is not a valid command. Try something else.");
+				}
 				if(currentEnemy.health<=0)
 				{
 					inBattle=false;
 					System.out.println("You have defeated the "+currentEnemy.name+"!");
+					player1.money+=currentEnemy.money;
+					System.out.println("You have gained "+currentEnemy.money+" Bits.");
+					currentSpace.enemies[0]=null;
+					currentEnemy=null;
 				}
 			}
 			if(player1.health==0)

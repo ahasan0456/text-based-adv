@@ -28,7 +28,7 @@ public class Player extends Person
 		this.coordinates=new int[] {0,0};
 		this.health=25;
 		this.maxHealth=25;
-		this.equippedWeapon=new Weapon("Sword of Combat Testing", 20);
+		this.equippedWeapon=new Weapon("Sword of Combat Testing", 50);
 		this.money=100;
 	}
 	public String greeting()
