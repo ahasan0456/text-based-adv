@@ -95,7 +95,7 @@ public class Utilities
 					Shopkeeper shopPerson=new Shopkeeper("Shopkeeper "+Utilities.getRandomName());
 					shopArr[0]=new Shop(shopPerson);
 				}
-				if(column>0&&!(column==spaceArr[row].length-1&&row==spaceArr.length-1))
+				if(!(row==0&&column==0)&&!(column==spaceArr[row].length-1&&row==spaceArr.length-1))
 				{
 					enemyArr[0]=generateEnemy(row+1, new int[] {row,column});
 				}

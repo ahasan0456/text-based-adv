@@ -25,6 +25,7 @@ public class Player extends Person
 	{
 		this.name=name;
 		this.inventory=new Item[20];
+		this.inventory[0]=Utilities.generateItem();
 		this.coordinates=new int[] {0,0};
 		this.health=25;
 		this.maxHealth=25;
