@@ -6,6 +6,7 @@
 */
 public class Utilities
 {
+	// getRandomInteger simply takes a lower value and upper value and returns a random int within that range.
 	public static int getRandomInteger(int low, int high)
 	{
 		if(low>high)
@@ -16,14 +17,16 @@ public class Utilities
 		}
 		return (int)(Math.random()*(high-(low-1))+low);
 	}
+	//getRandomName returns a String, picked at random from the randomName array.
 	public static String getRandomName()
 	{
 		return randomNames[getRandomInteger(0,randomNames.length-1)];
 	}
 	private static String[] randomNames= {"John","Jane","Mary","Joseph","Alex","Anne"};
 	private static String[] weaponNames= {"Baseball Bat", "Huge Pencil","Golf Club"};
-	private static String[] monsterNames= {"Spooky Skeleton","Scary Ghost", "Giant-ish Spider"};
+	private static String[] monsterNames= {"Spooky Skeleton","Scary Ghost", "Giant-ish Spider","Strange Alien"};
 	private static String[] foodNames= {"Chocolate Bar","Fried Chicken","Burger"};
+	//findKeyword takes a statement and looks for a certain phrase or word in it.
 	public static int findKeyword(String statement, String keyword)
 	{
 		String x=statement.toLowerCase();
@@ -31,19 +34,22 @@ public class Utilities
 		int position=x.indexOf(y);
 		return position;
 	}
+	//generateEnemy returns an enemy with random health, money, and name.
 	public static Enemy generateEnemy(int level, int[] coordinates)
 	{
 		int enHealth=getRandomInteger(level*9,level*10);
 		Item[] enInventory=new Item[2];
 		String enName= monsterNames[getRandomInteger(0,monsterNames.length-1)];
 		int enMoney=getRandomInteger(level*7,level*9)+getRandomInteger(enHealth*3,enHealth*6);
-		return new Enemy(enName,enInventory,coordinates,enHealth,enHealth,enMoney);
+		return new Enemy(enName,enInventory,coordinates,enHealth,enMoney);
 	}
+	//generateItem creates a random item which the player (or enemy, potentially) could use.
 	public static Item generateItem()
 	{
 		String fName=foodNames[getRandomInteger(0,foodNames.length-1)];
 		return new Food(fName,20);
 	}
+	//generateWeapon makes a random weapon based on where the player is.
 	public static Weapon generateWeapon(int level)
 	{
 		double prob=Math.random();
@@ -77,6 +83,7 @@ public class Utilities
 			}
 			else
 			{
+				//on the last row, the shop cannot be on the exit space
 				shopPos=Utilities.getRandomInteger(0,spaceArr[row].length-2);
 			}
 			for(int column=0;column<spaceArr[row].length;column++)
@@ -112,6 +119,20 @@ public class Utilities
 			}
 			System.out.println(line);
 			line="";
+		}
+	}
+	public static void printItemArr(Item[] itemArr)
+	{
+		for(int x=0;x<itemArr.length;x++)
+		{
+			if(itemArr[x]==null)
+			{
+				System.out.println("[ ]");
+			}
+			else
+			{
+				System.out.println("["+itemArr[x].toString()+"]");
+			}
 		}
 	}
 }

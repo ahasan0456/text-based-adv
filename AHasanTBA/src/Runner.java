@@ -1,6 +1,6 @@
 /*
 *	Author: Amir Hasan
-*	Last Updated: 11-2-17
+*	Last Updated: 11-3-17
 *	Description: This is the file to run the project. Obviously.
 */
 import java.util.Scanner;
@@ -15,7 +15,6 @@ public class Runner
 		System.out.println("The objective of this game is to get to the exit at the opposite corner of the map.");
 		System.out.println("You must level up and equip better gear first, however, as many monsters and foes stand in your way.");
 		System.out.println("Good luck, "+name+"!");
-		System.out.println("Initializing game...");
 		boolean lose=false;
 		boolean inBattle=false;
 		boolean inShop=false;
@@ -26,7 +25,6 @@ public class Runner
 		Space currentSpace=world.map[0][0];
 		Player player1=new Player(name);
 		world.map[0][0].players[0]=player1;
-		System.out.println("Game started!");
 		System.out.println("You have started far from the exit, all the way northwest.");
 		while(!lose&&!win)
 		{
@@ -145,11 +143,16 @@ public class Runner
 						currentShop=world.map[player1.coordinates[0]][player1.coordinates[1]].shops[0];
 						inShop=true;
 						System.out.println(currentShop.shopkeeper.name+" says: "+currentShop.shopkeeper.greeting());
+						System.out.println(currentShop.shopkeeper.name+" says: What would you like to purchase?");
 					}
 					else
 					{
 						System.out.println("There is no shop here.");
 					}
+				}
+				else if(Utilities.findKeyword(response,"inventory")>=0)
+				{
+					Utilities.printItemArr(player1.inventory);
 				}
 				else
 				{

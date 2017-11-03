@@ -8,14 +8,14 @@ public class Enemy extends Player
 	private int attack;
 	private int defense;
 	public int health;
-	public Enemy(String name, Item[] inventory, int[] coordinates, int health, int maxHealth, int money)
+	public Enemy(String name, Item[] inventory, int[] coordinates, int health, int money)
 	{
-		super(name,inventory,coordinates,health,maxHealth,null,money);
+		super(name,inventory,coordinates,health,health,null,money);
 		this.name=name;
 		this.inventory=inventory;
 		this.coordinates=coordinates;
 		this.health=health;
-		this.maxHealth=maxHealth;
+		this.maxHealth=health;
 		this.equippedWeapon=null;
 		this.money=money;
 	}
