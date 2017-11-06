@@ -192,6 +192,17 @@ public class Runner
 					currentSpace.enemies[0]=null;
 					currentEnemy=null;
 				}
+				else
+				{
+					player1.health-=currentEnemy.attack();
+					System.out.println(currentEnemy.name+" attacks you for "+currentEnemy.attack()+" damage!");
+				}
+				if(player1.health==0)
+				{
+					lose=true;
+					inBattle=false;
+					System.out.println("You have lost all your health and fainted. Game over.");
+				}
 			}
 			if(player1.health==0)
 			{

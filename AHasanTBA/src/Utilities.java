@@ -41,7 +41,7 @@ public class Utilities
 		Item[] enInventory=new Item[2];
 		String enName= monsterNames[getRandomInteger(0,monsterNames.length-1)];
 		int enMoney=getRandomInteger(level*7,level*9)+getRandomInteger(enHealth*3,enHealth*6);
-		return new Enemy(enName,enInventory,coordinates,enHealth,enMoney);
+		return new Enemy(enName,enInventory,coordinates,enHealth,enMoney,level);
 	}
 	//generateItem creates a random item which the player (or enemy, potentially) could use.
 	public static Item generateItem()
